@@ -4,22 +4,31 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.Objects;
 
 public class Main extends Application {
-
+    private static Stage stage;
     @Override
-    public void start(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
-        stage.setTitle("Brick Breaker");
+    public void start(Stage primaryStage) throws Exception{
+        stage = primaryStage;
+        URL welcomeUrl = getClass().getResource("Main.fxml");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(welcomeUrl));
+        primaryStage.setTitle("Game Menu");
         Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public void goToNewScene(MouseEvent mouseEvent) throws Exception {
+        new Show().start(stage);
     }
 }
