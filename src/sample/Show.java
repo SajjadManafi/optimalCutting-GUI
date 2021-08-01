@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,8 +13,6 @@ import java.util.Objects;
 
 public class Show extends Application {
 
-    public GridPane cardBoard;
-
     @Override
     public void start(Stage stage) throws Exception {
         URL gameMenuUrl = getClass().getResource("Show.fxml");
@@ -23,4 +22,7 @@ public class Show extends Application {
         stage.setScene(scene);
     }
 
+    @FXML
+    public void initialize(){}
+    
 }
