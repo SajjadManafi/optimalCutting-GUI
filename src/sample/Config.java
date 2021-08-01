@@ -17,9 +17,14 @@ public class Config {
         this.originalHeight = originalHeight;
 
         coefficient = setDifferenceCoefficient();
-
-        setWidth(originalWidth / getCoefficient());
-        setHeight(originalHeight / getCoefficient());
+        if (getCoefficient() >= 1.0){
+            setWidth(originalWidth / getCoefficient());
+            setHeight(originalHeight / getCoefficient());
+        }
+        else {
+            setWidth(originalWidth);
+            setHeight(originalHeight);
+        }
     }
 
     public void setWidth(double width) {
