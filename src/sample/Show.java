@@ -24,5 +24,5 @@ public class Show extends Application {
 
     @FXML
     public void initialize(){}
-    
+
 }
