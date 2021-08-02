@@ -9,6 +9,7 @@ public class Rectangular extends Rectangle implements Shape{
     public Rectangular(double width, double height) {
         super(width / Config.config.getCoefficient(), height / Config.config.getCoefficient());
         calculateArea();
+        this.getStyleClass().add("rectangle");
     }
 
     @Override

@@ -1,3 +1,7 @@
 .circle {
     -fx-fill: #ffc008;
 }
+
+.rectangle {
+    -fx-fill: #008808;
+}
