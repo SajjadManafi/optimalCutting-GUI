@@ -8,7 +8,7 @@ public class Circular extends Circle implements Shape{
     private double actualArea;
 
     public Circular(double centerX, double centerY, double radius) {
-        super(centerX, centerY, radius);
+        super(centerX, centerY, radius / Config.config.getCoefficient());
         calculateArea();
         this.getStyleClass().add("circle");
     }

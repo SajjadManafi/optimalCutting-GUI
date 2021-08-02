@@ -7,7 +7,7 @@ public class Rectangular extends Rectangle implements Shape{
     private double area;
 
     public Rectangular(double width, double height) {
-        super(width, height);
+        super(width / Config.config.getCoefficient(), height / Config.config.getCoefficient());
         calculateArea();
     }
 
