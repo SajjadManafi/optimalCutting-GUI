@@ -17,7 +17,7 @@ public class Config {
         this.originalHeight = originalHeight;
 
         coefficient = setDifferenceCoefficient();
-        if (getCoefficient() >= 1.0){
+        if (getCoefficient() > 1.0){
             setWidth(originalWidth / getCoefficient());
             setHeight(originalHeight / getCoefficient());
         }
@@ -44,7 +44,7 @@ public class Config {
     }
     // get difference coefficient between user input and MAX_SIZES
     public double setDifferenceCoefficient() {
-        return Math.max(originalWidth / MAX_WIDTH, originalHeight / MAX_HEIGHT);
+        return Math.max(Math.max(originalWidth / MAX_WIDTH, originalHeight / MAX_HEIGHT), 1.0);
     }
 
     public double getCoefficient() {
