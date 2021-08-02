@@ -10,6 +10,7 @@ public class Circular extends Circle implements Shape{
     public Circular(double centerX, double centerY, double radius) {
         super(centerX, centerY, radius);
         calculateArea();
+        this.getStyleClass().add("circle");
     }
 
     @Override
