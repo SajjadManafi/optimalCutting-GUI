@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.shape.Circle;
+
 public class Circular extends Circle implements Shape{
 
     private double area;
@@ -8,6 +9,7 @@ public class Circular extends Circle implements Shape{
 
     public Circular(double centerX, double centerY, double radius) {
         super(centerX, centerY, radius);
+        calculateArea();
     }
 
     @Override
