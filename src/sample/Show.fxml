@@ -3,9 +3,14 @@
 
 <?import javafx.scene.layout.*?>
 
+<?import java.net.URL?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.Show"
             fx:id="layout">
 
+
+    <stylesheets>
+        <URL value="@Show.css"/>
+    </stylesheets>
 </AnchorPane>
