@@ -1,9 +1,10 @@
 package sample;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Node {
-    private static final Node root = new Node(Config.config.getWidth() , Config.config.getHeight());
+    private static final Node root = new Node(12 , 10);
     private Node down;
     private Node right;
 
@@ -108,6 +109,14 @@ public class Node {
 
     public double getY() {
         return y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return Double.compare(node.width, width) == 0 && Double.compare(node.height, height) == 0 && Double.compare(node.x, x) == 0 && Double.compare(node.y, y) == 0;
     }
 
 }
