@@ -36,33 +36,33 @@ public class Show extends Application {
         Shape rect3 = new Rectangular(450,200);
         Shape rect4 = new Circular(0,0,240);
 
-        Node.addShape(rect2);
-        Node.addShape(rect);
-        Node.addShape(rect3);
-        Node.addShape(rect4);
+        bb.addShape(rect2);
+        bb.addShape(rect);
+        bb.addShape(rect3);
+        bb.addShape(rect4);
 
         bb.sort();
         bb.fit();
 //        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(0));
 //        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(1));
-        System.out.println(Node.shapes.get(0).getFit().getX() + " " + Node.shapes.get(0).getFit().getY());
-        System.out.println(Node.shapes.get(1).getFit().getX() + "-" + Node.shapes.get(1).getFit().getY());
-        System.out.println(Node.shapes.get(2).getFit().getX() + "---" + Node.shapes.get(2).getFit().getY());
-        System.out.println(Node.shapes.get(3).getFit().getX() + "---" + Node.shapes.get(3).getFit().getY());
-        System.out.println(Node.shapes.get(0).getShapeWidth());
-        Node.shapes.get(0).setShapeX(Node.shapes.get(0).getFit().getX());
-        Node.shapes.get(0).setShapeY(Node.shapes.get(0).getFit().getY());
-        Node.shapes.get(1).setShapeX(Node.shapes.get(1).getFit().getX());
-        Node.shapes.get(1).setShapeY(Node.shapes.get(1).getFit().getY());
-        Node.shapes.get(2).setShapeX(Node.shapes.get(2).getFit().getX());
-        Node.shapes.get(2).setShapeY(Node.shapes.get(2).getFit().getY());
-        Node.shapes.get(3).setShapeX(Node.shapes.get(3).getFit().getX());
-        Node.shapes.get(3).setShapeY(Node.shapes.get(3).getFit().getY());
-        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(0));
-        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(1));
-        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(2));
-        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(3));
-        */
+        System.out.println(bb.shapes.get(0).getFit().getX() + " " + bb.shapes.get(0).getFit().getY());
+        System.out.println(bb.shapes.get(1).getFit().getX() + "-" + bb.shapes.get(1).getFit().getY());
+        System.out.println(bb.shapes.get(2).getFit().getX() + "---" + bb.shapes.get(2).getFit().getY());
+        System.out.println(bb.shapes.get(3).getFit().getX() + "---" + bb.shapes.get(3).getFit().getY());
+        System.out.println(bb.shapes.get(0).getShapeWidth());
+        bb.shapes.get(0).setShapeX(bb.shapes.get(0).getFit().getX());
+        bb.shapes.get(0).setShapeY(bb.shapes.get(0).getFit().getY());
+        bb.shapes.get(1).setShapeX(bb.shapes.get(1).getFit().getX());
+        bb.shapes.get(1).setShapeY(bb.shapes.get(1).getFit().getY());
+        bb.shapes.get(2).setShapeX(bb.shapes.get(2).getFit().getX());
+        bb.shapes.get(2).setShapeY(bb.shapes.get(2).getFit().getY());
+        bb.shapes.get(3).setShapeX(bb.shapes.get(3).getFit().getX());
+        bb.shapes.get(3).setShapeY(bb.shapes.get(3).getFit().getY());
+        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(0));
+        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(1));
+        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(2));
+        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(3));
+*/
 
     }
 

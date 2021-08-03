@@ -15,7 +15,7 @@ public class Node {
 
     private boolean used;
 
-    public static ArrayList<Shape> shapes = new ArrayList<>();
+    public ArrayList<Shape> shapes = new ArrayList<>();
 
 
     public Node() {
@@ -40,7 +40,7 @@ public class Node {
         this.height = height;
     }
 
-    public static void addShape(Shape shape) {
+    public void addShape(Shape shape) {
         shapes.add(shape);
     }
 
@@ -101,7 +101,7 @@ public class Node {
         node.right = new Node(node.width - w , node.height , node.x + w , node.y);
         return node;
     }
-    
+
     public double getX() {
         return x;
     }
