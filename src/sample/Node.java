@@ -43,7 +43,7 @@ public class Node {
     public static void addShape(Shape shape) {
         shapes.add(shape);
     }
-    
+
     public void sort () {
         for (int i = 0; i < shapes.size(); i++) {
             for (int j = 0; j < shapes.size() - i - 1; j++) {
@@ -67,7 +67,41 @@ public class Node {
             }
         }
     }
+    public void fit() {
+        Shape temp;
+        Node node = null;
+        for (int i = 0; i < shapes.size(); i++) {
+            temp = shapes.get(i);
+            node = findNode(root, temp.getShapeWidth(), temp.getShapeHeight());
+            if (node != null)
+                shapes.get(i).setFit(splitNode(node, temp.getShapeWidth(), temp.getShapeHeight()));
 
+
+        }
+    }
+
+    public Node findNode(Node root , double w , double h) {
+        if (root.used) {
+            Node tmpNode = findNode(root.right, w, h);
+            if (tmpNode != null)
+                return tmpNode;
+            tmpNode = findNode(root.down, w, h);
+            if (tmpNode != null)
+                return tmpNode;
+        }
+        else if ((w <= root.width) && (h <= root.height))
+            return root;
+
+        return null;
+    }
+
+    public Node splitNode(Node node , double w , double h) {
+        node.used = true;
+        node.down = new Node(node.width , node.height - h , node.x , node.y + h);
+        node.right = new Node(node.width - w , node.height , node.x + w , node.y);
+        return node;
+    }
+    
     public double getX() {
         return x;
     }
