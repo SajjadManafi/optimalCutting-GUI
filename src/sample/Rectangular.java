@@ -1,15 +1,17 @@
 package sample;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Rectangular extends Rectangle implements Shape{
-
+    private Node fit;
     private double area;
 
     public Rectangular(double width, double height) {
         super(width / Config.config.getCoefficient(), height / Config.config.getCoefficient());
         calculateArea();
         this.getStyleClass().add("rectangle");
+        this.setStroke(Color.ORANGERED);
     }
 
     @Override
@@ -65,6 +67,16 @@ public class Rectangular extends Rectangle implements Shape{
     @Override
     public void setShapeY(double y) {
         this.setY(y);
+    }
+
+    @Override
+    public void setFit(Node node) {
+        this.fit = node;
+    }
+
+    @Override
+    public Node getFit() {
+        return fit;
     }
 
 }

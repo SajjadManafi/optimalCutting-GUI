@@ -1,9 +1,10 @@
 package sample;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class Circular extends Circle implements Shape{
-
+    private Node fit;
     private double area;
     private double actualArea;
 
@@ -11,6 +12,7 @@ public class Circular extends Circle implements Shape{
         super(centerX, centerY, radius / Config.config.getCoefficient());
         calculateArea();
         this.getStyleClass().add("circle");
+        this.setStroke(Color.DARKBLUE);
     }
 
     @Override
@@ -67,6 +69,16 @@ public class Circular extends Circle implements Shape{
     @Override
     public void setShapeY(double y) {
         this.setCenterY(y + this.getRadius());
+    }
+
+    @Override
+    public void setFit(Node node) {
+        this.fit = node;
+    }
+
+    @Override
+    public Node getFit() {
+        return fit;
     }
 
 }
