@@ -27,6 +27,9 @@ public class Show extends Application {
     @FXML
     public void initialize(){
         layout.setPrefSize(Config.config.getWidth() , Config.config.getHeight());
+
+        // test bin algorithm
+        /*
         Shape rect = new Rectangular(100,100);
         Node bb = new sample.Node();
         Shape rect2 = new Rectangular(250,100);
@@ -59,6 +62,8 @@ public class Show extends Application {
         layout.getChildren().add((javafx.scene.Node) Node.shapes.get(1));
         layout.getChildren().add((javafx.scene.Node) Node.shapes.get(2));
         layout.getChildren().add((javafx.scene.Node) Node.shapes.get(3));
+        */
+
     }
 
 }
