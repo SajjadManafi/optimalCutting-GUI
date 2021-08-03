@@ -26,4 +26,45 @@ public class Rectangular extends Rectangle implements Shape{
     public double getActualArea() {
         return area;
     }
+
+    @Override
+    public double getShapeWidth() {
+        return this.getWidth();
+    }
+
+    @Override
+    public double getShapeHeight() {
+        return this.getHeight();
+    }
+
+    @Override
+    public double getShapeX() {
+        return this.getX();
+    }
+
+    @Override
+    public double getShapeY() {
+        return this.getY();
+    }
+
+    @Override
+    public void setShapeWidth(double width) {
+        this.setWidth(width);
+    }
+
+    @Override
+    public void setShapeHeight(double height) {
+        this.setHeight(height);
+    }
+
+    @Override
+    public void setShapeX(double x) {
+        this.setX(x);
+    }
+
+    @Override
+    public void setShapeY(double y) {
+        this.setY(y);
+    }
+
 }

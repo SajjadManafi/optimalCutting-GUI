@@ -28,4 +28,45 @@ public class Circular extends Circle implements Shape{
     public double getActualArea() {
         return actualArea;
     }
+
+    @Override
+    public double getShapeWidth() {
+        return this.getRadius()*2;
+    }
+
+    @Override
+    public double getShapeHeight() {
+        return this.getRadius()*2;
+    }
+
+    @Override
+    public double getShapeX() {
+        return this.getCenterX() - this.getRadius();
+    }
+
+    @Override
+    public double getShapeY() {
+        return this.getCenterY() - this.getRadius();
+    }
+
+    @Override
+    public void setShapeWidth(double width) {
+        this.setRadius(width/2);
+    }
+
+    @Override
+    public void setShapeHeight(double height) {
+        this.setRadius(height/2);
+    }
+
+    @Override
+    public void setShapeX(double x) {
+        this.setCenterX(x + this.getRadius());
+    }
+
+    @Override
+    public void setShapeY(double y) {
+        this.setCenterY(y + this.getRadius());
+    }
+
 }
