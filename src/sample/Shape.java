@@ -18,5 +18,7 @@ public interface Shape {
     void setShapeX(double x);
     void setShapeY(double y);
 
+    void setFit(Node node);
+    Node getFit();
 
 }
