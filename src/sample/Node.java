@@ -44,6 +44,29 @@ public class Node {
         shapes.add(shape);
     }
     
+    public void sort () {
+        for (int i = 0; i < shapes.size(); i++) {
+            for (int j = 0; j < shapes.size() - i - 1; j++) {
+
+                double maxJ = Math.max(shapes.get(j).getShapeHeight(), shapes.get(j).getShapeWidth());
+                double minJ = Math.min(shapes.get(j).getShapeHeight(), shapes.get(j).getShapeWidth());
+
+                double maxJ1 = Math.max(shapes.get(j + 1).getShapeHeight(), shapes.get(j + 1).getShapeWidth());
+                double minJ1 = Math.min(shapes.get(j + 1).getShapeHeight(), shapes.get(j + 1).getShapeWidth());
+
+                if (maxJ < maxJ1) {
+                    Shape temp = shapes.get(j);
+                    shapes.set(j , shapes.get(j + 1));
+                    shapes.set(j + 1 , temp);
+                }
+                else if (maxJ == maxJ1 && minJ < minJ1) {
+                    Shape temp = shapes.get(j);
+                    shapes.set(j , shapes.get(j + 1));
+                    shapes.set(j + 1 , temp);
+                }
+            }
+        }
+    }
 
     public double getX() {
         return x;
