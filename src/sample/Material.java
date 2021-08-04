@@ -37,4 +37,11 @@ public class Material {
     public void setActualArea(double actualArea) {
         this.actualArea = actualArea;
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    
 }
