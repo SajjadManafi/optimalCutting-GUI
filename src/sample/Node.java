@@ -1,10 +1,9 @@
 package sample;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Node {
-    private static final Node root = new Node(12 , 10);
+    private static final Node root = new Node(Config.config.getWidth() , Config.config.getHeight());
     private Node down;
     private Node right;
 
@@ -117,6 +116,20 @@ public class Node {
         if (o == null || getClass() != o.getClass()) return false;
         Node node = (Node) o;
         return Double.compare(node.width, width) == 0 && Double.compare(node.height, height) == 0 && Double.compare(node.x, x) == 0 && Double.compare(node.y, y) == 0;
+    }
+
+    public double fillPercent() {
+        int all = shapes.size();
+        double fit = 0.0;
+        for (Shape shape : shapes) {
+            if (shape.getFit() != null)
+                fit += 1.0;
+        }
+        return (fit / all) * 100;
+    }
+
+    public boolean allPlaced () {
+        return fillPercent() == 100.0;
     }
 
 }
