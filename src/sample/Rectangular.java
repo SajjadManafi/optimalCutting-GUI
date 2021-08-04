@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Rectangular extends Rectangle implements Shape{
-    private Node fit;
+    private Node fit = null;
     private double area;
 
     public Rectangular(double width, double height) {

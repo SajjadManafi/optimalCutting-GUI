@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class Circular extends Circle implements Shape{
-    private Node fit;
+    private Node fit = null;
     private double area;
     private double actualArea;
 
