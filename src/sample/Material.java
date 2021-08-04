@@ -51,4 +51,11 @@ public class Material {
         return ( area / InitialArea ) * 100;
     }
 
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
 }
