@@ -43,5 +43,12 @@ public class Material {
         return super.clone();
     }
 
-    
+    public double calUsedArea() {
+        return ( area / InitialArea ) * 100;
+    }
+
+    public double calUsedActualArea() {
+        return ( area / InitialArea ) * 100;
+    }
+
 }
