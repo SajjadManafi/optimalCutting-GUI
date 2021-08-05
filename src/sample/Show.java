@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Show extends Application {
@@ -25,44 +26,49 @@ public class Show extends Application {
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() throws CloneNotSupportedException {
         layout.setPrefSize(Config.config.getWidth() , Config.config.getHeight());
+        //TODO: first check if cant place one from objects
 
         // test bin algorithm
-        /*
-        Shape rect = new Rectangular(100,100);
+        ArrayList<Shape> sh = new ArrayList<>();
         Node bb = new sample.Node();
-        Shape rect2 = new Rectangular(250,100);
-        Shape rect3 = new Rectangular(450,200);
-        Shape rect4 = new Circular(0,0,240);
+        sh.add(new Rectangular(171,69));
+        sh.add(new Rectangular(171,69));
+        sh.add(new Rectangular(171,69));
+        sh.add(new Circular(0,0 , 80));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Rectangular(102,36));
+        sh.add(new Circular(0,0 , 56));
+        sh.add(new Circular(0,0 , 56));
 
-        bb.addShape(rect2);
-        bb.addShape(rect);
-        bb.addShape(rect3);
-        bb.addShape(rect4);
+        Boolean check1 = Cut.allFit(sh);
+        System.out.println(check1);
+        Boolean check2 = Cut.canBeAdd(sh , new Rectangular(102,36));
+        System.out.println(check2);
+
+        bb.shapes = sh;
 
         bb.sort();
         bb.fit();
-//        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(0));
-//        layout.getChildren().add((javafx.scene.Node) Node.shapes.get(1));
-        System.out.println(bb.shapes.get(0).getFit().getX() + " " + bb.shapes.get(0).getFit().getY());
-        System.out.println(bb.shapes.get(1).getFit().getX() + "-" + bb.shapes.get(1).getFit().getY());
-        System.out.println(bb.shapes.get(2).getFit().getX() + "---" + bb.shapes.get(2).getFit().getY());
-        System.out.println(bb.shapes.get(3).getFit().getX() + "---" + bb.shapes.get(3).getFit().getY());
-        System.out.println(bb.shapes.get(0).getShapeWidth());
-        bb.shapes.get(0).setShapeX(bb.shapes.get(0).getFit().getX());
-        bb.shapes.get(0).setShapeY(bb.shapes.get(0).getFit().getY());
-        bb.shapes.get(1).setShapeX(bb.shapes.get(1).getFit().getX());
-        bb.shapes.get(1).setShapeY(bb.shapes.get(1).getFit().getY());
-        bb.shapes.get(2).setShapeX(bb.shapes.get(2).getFit().getX());
-        bb.shapes.get(2).setShapeY(bb.shapes.get(2).getFit().getY());
-        bb.shapes.get(3).setShapeX(bb.shapes.get(3).getFit().getX());
-        bb.shapes.get(3).setShapeY(bb.shapes.get(3).getFit().getY());
-        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(0));
-        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(1));
-        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(2));
-        layout.getChildren().add((javafx.scene.Node) bb.shapes.get(3));
-*/
+
+
+        for (int i = 0; i < bb.shapes.size(); i++) {
+            System.out.println(i);
+            if (bb.shapes.get(i).getFit() != null) {
+                bb.shapes.get(i).setShapeX(bb.shapes.get(i).getFit().getX());
+                bb.shapes.get(i).setShapeY(bb.shapes.get(i).getFit().getY());
+                layout.getChildren().add((javafx.scene.Node) bb.shapes.get(i));
+            }
+        }
 
     }
 

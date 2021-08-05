@@ -3,7 +3,7 @@ package sample;
 import java.util.ArrayList;
 
 public class Node {
-    private static final Node root = new Node(Config.config.getWidth() , Config.config.getHeight());
+    private static Node root = new Node(Config.config.getWidth() , Config.config.getHeight());
     private Node down;
     private Node right;
 
@@ -68,9 +68,10 @@ public class Node {
         }
     }
     public void fit() {
+        root = new Node(Config.config.getWidth() , Config.config.getHeight());
         Shape temp;
-        Node node = null;
         for (int i = 0; i < shapes.size(); i++) {
+            Node node = null;
             temp = shapes.get(i);
             node = findNode(root, temp.getShapeWidth(), temp.getShapeHeight());
             if (node != null)
@@ -85,9 +86,9 @@ public class Node {
             Node tmpNode = findNode(root.right, w, h);
             if (tmpNode != null)
                 return tmpNode;
-            tmpNode = findNode(root.down, w, h);
-            if (tmpNode != null)
-                return tmpNode;
+            Node tmpNode2 = findNode(root.down, w, h);
+            if (tmpNode2 != null)
+                return tmpNode2;
         }
         else if ((w <= root.width) && (h <= root.height))
             return root;
@@ -98,7 +99,7 @@ public class Node {
     public Node splitNode(Node node , double w , double h) {
         node.used = true;
         node.down = new Node(node.width , node.height - h , node.x , node.y + h);
-        node.right = new Node(node.width - w , node.height , node.x + w , node.y);
+        node.right = new Node(node.width - w , h , node.x + w , node.y);
         return node;
     }
 
@@ -108,14 +109,6 @@ public class Node {
 
     public double getY() {
         return y;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Node node = (Node) o;
-        return Double.compare(node.width, width) == 0 && Double.compare(node.height, height) == 0 && Double.compare(node.x, x) == 0 && Double.compare(node.y, y) == 0;
     }
 
     public double fillPercent() {

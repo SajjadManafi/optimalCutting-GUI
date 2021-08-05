@@ -21,7 +21,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
-        Config.config = new Config(750 , 700);
+        Config.config = new Config(400, 400);
     }
 
 
