@@ -1,5 +1,9 @@
 package sample;
 
+/***
+ * Material class
+ * To calculate the remaining area and other tests.
+ ***/
 public class Material {
     private final double width;
     private final double height;
@@ -17,7 +21,7 @@ public class Material {
         this.actualArea = this.InitialArea;
     }
 
-    public void cut(Shape shape){
+    public void cut(Shape shape) {
         setArea(getArea() - shape.getArea());
         setActualArea(getActualArea() - shape.getActualArea());
     }
@@ -44,11 +48,11 @@ public class Material {
     }
 
     public double calUsedArea() {
-        return ( area / InitialArea ) * 100;
+        return (area / InitialArea) * 100;
     }
 
     public double calUsedActualArea() {
-        return ( area / InitialArea ) * 100;
+        return (area / InitialArea) * 100;
     }
 
     public double getWidth() {

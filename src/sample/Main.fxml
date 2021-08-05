@@ -6,23 +6,35 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Main">
-   <children>
-      <ListView fx:id="myListView" layoutX="300.0" layoutY="20.0" prefHeight="325.0" prefWidth="270.0" />
-      <TextField fx:id="materialW" alignment="CENTER" layoutX="45.0" layoutY="65.0" prefHeight="24.0" prefWidth="96.0" promptText="width" />
-      <TextField fx:id="materialH" alignment="CENTER" layoutX="150.0" layoutY="65.0" prefHeight="24.0" prefWidth="96.0" promptText="height" />
-      <Label layoutX="100.0" layoutY="38.0" text="Material Size:" />
-      <Label layoutX="100.0" layoutY="138.0" text="add rectangle" />
-      <TextField fx:id="rectW" alignment="CENTER" layoutX="45.0" layoutY="162.0" prefHeight="24.0" prefWidth="96.0" promptText="width" />
-      <TextField fx:id="rectH" alignment="CENTER" layoutX="147.0" layoutY="162.0" prefHeight="24.0" prefWidth="96.0" promptText="height" />
-      <Label layoutX="100.0" layoutY="236.0" text="add circle" />
-      <TextField fx:id="circleRadios" alignment="CENTER" layoutX="45.0" layoutY="261.0" prefHeight="24.0" prefWidth="191.0" promptText="circle radios" />
-      <Button layoutX="110.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#addNewRectangle" prefHeight="24.0" prefWidth="63.0" text="add" />
-      <Button layoutX="110.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#addNewCircle" prefHeight="24.0" prefWidth="63.0" text="add" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.Main">
+    <children>
+        <ListView fx:id="myListView" layoutX="300.0" layoutY="20.0" prefHeight="325.0" prefWidth="270.0"/>
+        <TextField fx:id="materialW" alignment="CENTER" layoutX="45.0" layoutY="65.0" prefHeight="24.0" prefWidth="96.0"
+                   promptText="width"/>
+        <TextField fx:id="materialH" alignment="CENTER" layoutX="150.0" layoutY="65.0" prefHeight="24.0"
+                   prefWidth="96.0" promptText="height"/>
+        <Label layoutX="100.0" layoutY="38.0" text="Material Size:"/>
+        <Label layoutX="100.0" layoutY="138.0" text="add rectangle"/>
+        <TextField fx:id="rectW" alignment="CENTER" layoutX="45.0" layoutY="162.0" prefHeight="24.0" prefWidth="96.0"
+                   promptText="width"/>
+        <TextField fx:id="rectH" alignment="CENTER" layoutX="147.0" layoutY="162.0" prefHeight="24.0" prefWidth="96.0"
+                   promptText="height"/>
+        <Label layoutX="100.0" layoutY="236.0" text="add circle"/>
+        <TextField fx:id="circleRadios" alignment="CENTER" layoutX="45.0" layoutY="261.0" prefHeight="24.0"
+                   prefWidth="191.0" promptText="circle radios"/>
+        <Button layoutX="110.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#addNewRectangle"
+                prefHeight="24.0" prefWidth="63.0" text="add"/>
+        <Button layoutX="110.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#addNewCircle" prefHeight="24.0"
+                prefWidth="63.0" text="add"/>
 
-      <Button layoutX="85.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#goToNewScene" prefHeight="24.0" prefWidth="113.0" text="lets go!" />
-      <Button layoutX="390.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#removeShape" prefHeight="24.0" prefWidth="90.0" text="remove" />
-      <Button layoutX="114.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#setMat" prefHeight="24.0" prefWidth="63.0" text="set" />
-   </children>
+        <Button layoutX="85.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#goToNewScene" prefHeight="24.0"
+                prefWidth="113.0" text="lets go!"/>
+        <Button layoutX="390.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#removeShape" prefHeight="24.0"
+                prefWidth="90.0" text="remove"/>
+        <Button layoutX="114.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#setMat" prefHeight="24.0"
+                prefWidth="63.0" text="set"/>
+    </children>
 
 </Pane>

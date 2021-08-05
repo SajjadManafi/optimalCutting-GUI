@@ -1,14 +1,17 @@
 package sample;
 
-
+/***
+ * Project configuration.
+ * Shape calculations and scaling if the dimensions are large.
+ */
 public class Config {
     public static Config config;
     public static final double MAX_WIDTH = 1200.0;
     public static final double MAX_HEIGHT = 650.0;
     private double width;
     private double height;
-    private  double originalWidth;
-    private  double originalHeight;
+    private double originalWidth;
+    private double originalHeight;
     private final double coefficient;
 
     public Config(double originalWidth, double originalHeight) {
@@ -17,11 +20,10 @@ public class Config {
         this.originalHeight = originalHeight;
 
         coefficient = setDifferenceCoefficient();
-        if (getCoefficient() > 1.0){
+        if (getCoefficient() > 1.0) {
             setWidth(originalWidth / getCoefficient());
             setHeight(originalHeight / getCoefficient());
-        }
-        else {
+        } else {
             setWidth(originalWidth);
             setHeight(originalHeight);
         }
@@ -42,6 +44,7 @@ public class Config {
     public double getHeight() {
         return height;
     }
+
     // get difference coefficient between user input and MAX_SIZES
     public double setDifferenceCoefficient() {
         return Math.max(Math.max(originalWidth / MAX_WIDTH, originalHeight / MAX_HEIGHT), 1.0);

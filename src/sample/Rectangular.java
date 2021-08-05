@@ -1,9 +1,12 @@
 package sample;
+/***
+ * Construct a rectangular based on the specified config coefficient.
+ */
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Rectangular extends Rectangle implements Shape{
+public class Rectangular extends Rectangle implements Shape {
     private Node fit = null;
     private double area;
     private double wid;
@@ -14,8 +17,6 @@ public class Rectangular extends Rectangle implements Shape{
         calculateArea();
         this.wid = width;
         this.hei = height;
-//        this.getStyleClass().add("rectangle");
-//        this.setStroke(Color.ORANGERED);
         this.setFill(Color.color(Math.random(), Math.random(), Math.random()));
     }
 

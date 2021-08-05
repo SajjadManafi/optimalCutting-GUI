@@ -1,3 +1,8 @@
+/***
+ * This class is for the user interface. And the application menu.
+ * Dimensions of materials and shapes are taken in this class
+ * ***/
+
 package sample;
 
 import javafx.application.Application;
@@ -26,8 +31,8 @@ public class Main extends Application {
     Alert matAlert = new Alert(Alert.AlertType.ERROR, "First set Material Size", ButtonType.OK);
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
             "your screen not support width bigger than 1200 and height bigger than 650.\n" +
-            "Do you want to continue?\n" +
-            "The program may not work properly.",
+                    "Do you want to continue?\n" +
+                    "The program may not work properly.",
             ButtonType.YES, ButtonType.NO);
 
     @FXML
@@ -49,7 +54,7 @@ public class Main extends Application {
     private TextField circleRadios;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         URL welcomeUrl = getClass().getResource("Main.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(welcomeUrl));
@@ -86,8 +91,7 @@ public class Main extends Application {
             } else
                 positiveAlert.showAndWait();
             circleRadios.setText("");
-        }
-        else {
+        } else {
             matAlert.showAndWait();
         }
 
@@ -112,8 +116,7 @@ public class Main extends Application {
                 positiveAlert.showAndWait();
             rectW.setText("");
             rectH.setText("");
-        }
-        else {
+        } else {
             matAlert.showAndWait();
         }
     }
@@ -134,12 +137,12 @@ public class Main extends Application {
         if (materialW.getText().matches("[0-9]*") && materialH.getText().matches("[0-9]*")) {
             int width = Integer.parseInt(materialW.getText());
             int height = Integer.parseInt(materialH.getText());
-            if (width > 1200 || height > 650){
+            if (width > 1200 || height > 650) {
                 alert.showAndWait();
                 flag = true;
             }
             if (!flag) {
-                Config.config = new Config(width , height);
+                Config.config = new Config(width, height);
             }
             if (alert.getResult() == ButtonType.YES) {
                 Config.config = new Config(width, height);

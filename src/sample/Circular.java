@@ -1,11 +1,14 @@
 package sample;
+/***
+ * Construct a circle based on the specified config coefficient.
+ */
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.util.Objects;
 
-public class Circular extends Circle implements Shape{
+public class Circular extends Circle implements Shape {
     private Node fit = null;
     private double area;
     private double actualArea;
@@ -22,10 +25,11 @@ public class Circular extends Circle implements Shape{
 
     @Override
     public void calculateArea() {
-        actualArea = Math.PI * (Math.pow(this.getRadius() , 2));
-        area = Math.pow(this.getRadius() * 2 , 2);
+        actualArea = Math.PI * (Math.pow(this.getRadius(), 2));
+        area = Math.pow(this.getRadius() * 2, 2);
 
     }
+
     @Override
     public double getArea() {
         return area;
@@ -38,12 +42,12 @@ public class Circular extends Circle implements Shape{
 
     @Override
     public double getShapeWidth() {
-        return this.getRadius()*2;
+        return this.getRadius() * 2;
     }
 
     @Override
     public double getShapeHeight() {
-        return this.getRadius()*2;
+        return this.getRadius() * 2;
     }
 
     @Override
@@ -58,12 +62,12 @@ public class Circular extends Circle implements Shape{
 
     @Override
     public void setShapeWidth(double width) {
-        this.setRadius(width/2);
+        this.setRadius(width / 2);
     }
 
     @Override
     public void setShapeHeight(double height) {
-        this.setRadius(height/2);
+        this.setRadius(height / 2);
     }
 
     @Override

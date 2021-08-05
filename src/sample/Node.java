@@ -1,9 +1,14 @@
 package sample;
+/***
+ * Drawing shapes on the page are done in this class.
+ * This class only has the task of forming shapes and arranging them on the page in the most optimal way.
+ * And specifying the number of shapes for the optimal state is not the task of this class.
+ */
 
 import java.util.ArrayList;
 
 public class Node {
-    private static Node root = new Node(Config.config.getWidth() , Config.config.getHeight());
+    private static Node root = new Node(Config.config.getWidth(), Config.config.getHeight());
     private Node down;
     private Node right;
 
@@ -44,7 +49,7 @@ public class Node {
         shapes.add(shape);
     }
 
-    public void sort () {
+    public void sort() {
         for (int i = 0; i < shapes.size(); i++) {
             for (int j = 0; j < shapes.size() - i - 1; j++) {
 
@@ -56,19 +61,19 @@ public class Node {
 
                 if (maxJ < maxJ1) {
                     Shape temp = shapes.get(j);
-                    shapes.set(j , shapes.get(j + 1));
-                    shapes.set(j + 1 , temp);
-                }
-                else if (maxJ == maxJ1 && minJ < minJ1) {
+                    shapes.set(j, shapes.get(j + 1));
+                    shapes.set(j + 1, temp);
+                } else if (maxJ == maxJ1 && minJ < minJ1) {
                     Shape temp = shapes.get(j);
-                    shapes.set(j , shapes.get(j + 1));
-                    shapes.set(j + 1 , temp);
+                    shapes.set(j, shapes.get(j + 1));
+                    shapes.set(j + 1, temp);
                 }
             }
         }
     }
+
     public void fit() {
-        root = new Node(Config.config.getWidth() , Config.config.getHeight());
+        root = new Node(Config.config.getWidth(), Config.config.getHeight());
         Shape temp;
         for (int i = 0; i < shapes.size(); i++) {
             Node node = null;
@@ -81,7 +86,7 @@ public class Node {
         }
     }
 
-    public Node findNode(Node root , double w , double h) {
+    public Node findNode(Node root, double w, double h) {
         if (root.used) {
             Node tmpNode = findNode(root.right, w, h);
             if (tmpNode != null)
@@ -89,17 +94,16 @@ public class Node {
             Node tmpNode2 = findNode(root.down, w, h);
             if (tmpNode2 != null)
                 return tmpNode2;
-        }
-        else if ((w <= root.width) && (h <= root.height))
+        } else if ((w <= root.width) && (h <= root.height))
             return root;
 
         return null;
     }
 
-    public Node splitNode(Node node , double w , double h) {
+    public Node splitNode(Node node, double w, double h) {
         node.used = true;
-        node.down = new Node(node.width , node.height - h , node.x , node.y + h);
-        node.right = new Node(node.width - w , h , node.x + w , node.y);
+        node.down = new Node(node.width, node.height - h, node.x, node.y + h);
+        node.right = new Node(node.width - w, h, node.x + w, node.y);
         return node;
     }
 
@@ -121,7 +125,7 @@ public class Node {
         return (fit / all) * 100;
     }
 
-    public boolean allPlaced () {
+    public boolean allPlaced() {
         return fillPercent() == 100.0;
     }
 

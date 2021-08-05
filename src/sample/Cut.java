@@ -1,4 +1,8 @@
 package sample;
+/***
+ * This class has the task of choosing the best way to select shapes.
+ * the number of each shape.
+ */
 
 import java.util.ArrayList;
 
@@ -17,19 +21,17 @@ public class Cut {
             System.exit(0);
         }
         int counter = 0;
-        while(counter < initialShapes.size()) {
+        while (counter < initialShapes.size()) {
 
             Shape tmpShape = shapeCloner(initialShapes.get(counter));
             Shape tmpShapeH = horizontalShapeCloner(initialShapes.get(counter));
-            if (canBeAdd(shapes , tmpShape)) {
+            if (canBeAdd(shapes, tmpShape)) {
                 shapes.add(tmpShape);
                 mat.cut(tmpShape);
-            }
-            else if (tmpShapeH != null  && canBeAdd(shapes , tmpShapeH)){
+            } else if (tmpShapeH != null && canBeAdd(shapes, tmpShapeH)) {
                 shapes.add(tmpShapeH);
                 mat.cut(tmpShapeH);
-            }
-            else {
+            } else {
                 counter += 1;
             }
         }
@@ -50,19 +52,18 @@ public class Cut {
 
                 if (maxJ < maxJ1) {
                     Shape temp = shapes.get(j);
-                    shapes.set(j , shapes.get(j + 1));
-                    shapes.set(j + 1 , temp);
-                }
-                else if (maxJ == maxJ1 && minJ < minJ1) {
+                    shapes.set(j, shapes.get(j + 1));
+                    shapes.set(j + 1, temp);
+                } else if (maxJ == maxJ1 && minJ < minJ1) {
                     Shape temp = shapes.get(j);
-                    shapes.set(j , shapes.get(j + 1));
-                    shapes.set(j + 1 , temp);
+                    shapes.set(j, shapes.get(j + 1));
+                    shapes.set(j + 1, temp);
                 }
             }
         }
     }
 
-    public static Shape shapeCloner (Shape tmp) {
+    public static Shape shapeCloner(Shape tmp) {
         if (tmp.getClass().getName().equals("sample.Rectangular"))
             return new Rectangular(tmp.getShapeWidth(), tmp.getShapeHeight());
         else if (tmp.getClass().getName().equals("sample.Circular"))
@@ -70,6 +71,7 @@ public class Cut {
 
         return null;
     }
+
     public static Shape horizontalShapeCloner(Shape tmp) {
         if (tmp.getClass().getName().equals("sample.Rectangular"))
             return new Rectangular(tmp.getShapeHeight(), tmp.getShapeWidth());
@@ -88,7 +90,7 @@ public class Cut {
         return tmpNode.allPlaced();
     }
 
-    public static Boolean canBeAdd(ArrayList<Shape> shapes , Shape shape){
+    public static Boolean canBeAdd(ArrayList<Shape> shapes, Shape shape) {
         ArrayList<Shape> newShapes = new ArrayList<>();
         for (Shape value : shapes) {
             newShapes.add(shapeCloner(value));
