@@ -34,35 +34,16 @@ public class Show extends Application {
         ArrayList<Shape> sh = new ArrayList<>();
         Node bb = new sample.Node();
         sh.add(new Rectangular(171,69));
-        sh.add(new Rectangular(171,69));
-        sh.add(new Rectangular(171,69));
         sh.add(new Circular(0,0 , 80));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Rectangular(102,36));
-        sh.add(new Circular(0,0 , 56));
+        sh.add(new Rectangular(102,34));
         sh.add(new Circular(0,0 , 56));
 
-        Boolean check1 = Cut.allFit(sh);
-        System.out.println(check1);
-        Boolean check2 = Cut.canBeAdd(sh , new Rectangular(102,36));
-        System.out.println(check2);
-
-        bb.shapes = sh;
+        bb.shapes = Cut.cut(sh);
 
         bb.sort();
         bb.fit();
 
-
         for (int i = 0; i < bb.shapes.size(); i++) {
-            System.out.println(i);
             if (bb.shapes.get(i).getFit() != null) {
                 bb.shapes.get(i).setShapeX(bb.shapes.get(i).getFit().getX());
                 bb.shapes.get(i).setShapeY(bb.shapes.get(i).getFit().getY());
