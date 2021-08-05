@@ -3,8 +3,6 @@ package sample;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import java.util.Objects;
-
 public class Rectangular extends Rectangle implements Shape{
     private Node fit = null;
     private double area;
