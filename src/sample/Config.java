@@ -7,8 +7,8 @@ public class Config {
     public static final double MAX_HEIGHT = 650.0;
     private double width;
     private double height;
-    private final double originalWidth;
-    private final double originalHeight;
+    private  double originalWidth;
+    private  double originalHeight;
     private final double coefficient;
 
     public Config(double originalWidth, double originalHeight) {
@@ -49,5 +49,13 @@ public class Config {
 
     public double getCoefficient() {
         return coefficient;
+    }
+
+    public void setOriginalWidth(double originalWidth) {
+        this.originalWidth = originalWidth;
+    }
+
+    public void setOriginalHeight(double originalHeight) {
+        this.originalHeight = originalHeight;
     }
 }
