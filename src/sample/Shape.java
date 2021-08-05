@@ -20,5 +20,4 @@ public interface Shape {
 
     void setFit(Node node);
     Node getFit();
-
 }

@@ -11,8 +11,9 @@ public class Circular extends Circle implements Shape{
     public Circular(double centerX, double centerY, double radius) {
         super(centerX, centerY, radius / Config.config.getCoefficient());
         calculateArea();
-        this.getStyleClass().add("circle");
-        this.setStroke(Color.DARKBLUE);
+//        this.getStyleClass().add("circle");
+//        this.setStroke(Color.DARKBLUE);
+        this.setFill(Color.color(Math.random(), Math.random(), Math.random()));
     }
 
     @Override
@@ -80,5 +81,4 @@ public class Circular extends Circle implements Shape{
     public Node getFit() {
         return fit;
     }
-
 }
