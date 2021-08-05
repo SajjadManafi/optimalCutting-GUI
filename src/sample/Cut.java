@@ -3,7 +3,9 @@ package sample;
 import java.util.ArrayList;
 
 public class Cut {
+
     public static ArrayList<Shape> shapes = new ArrayList<>();
+
     public static ArrayList<Shape> cut(ArrayList<Shape> initialShapes) {
         //TODO: check initials 100% fit so run this method
         Material mat = new Material(Config.config.getWidth(), Config.config.getHeight());
@@ -18,7 +20,7 @@ public class Cut {
         while(counter < initialShapes.size()) {
 
             Shape tmpShape = shapeCloner(initialShapes.get(counter));
-            Shape tmpShapeH = HorizontalShapeCloner(initialShapes.get(counter));
+            Shape tmpShapeH = horizontalShapeCloner(initialShapes.get(counter));
             if (canBeAdd(shapes , tmpShape)) {
                 shapes.add(tmpShape);
                 mat.cut(tmpShape);
@@ -68,7 +70,7 @@ public class Cut {
 
         return null;
     }
-    public static Shape HorizontalShapeCloner (Shape tmp) {
+    public static Shape horizontalShapeCloner(Shape tmp) {
         if (tmp.getClass().getName().equals("sample.Rectangular"))
             return new Rectangular(tmp.getShapeHeight(), tmp.getShapeWidth());
         else if (tmp.getClass().getName().equals("sample.Circular"))
