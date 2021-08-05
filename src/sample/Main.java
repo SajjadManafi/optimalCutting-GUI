@@ -58,7 +58,7 @@ public class Main extends Application {
         stage = primaryStage;
         URL welcomeUrl = getClass().getResource("Main.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(welcomeUrl));
-        primaryStage.setTitle("Game Menu");
+        primaryStage.setTitle("Menu");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
