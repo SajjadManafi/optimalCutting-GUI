@@ -23,6 +23,7 @@ public class Main extends Application {
 
     Alert positiveAlert = new Alert(Alert.AlertType.ERROR, "Please enter only a positive integer", ButtonType.OK);
     Alert duplicateAlert = new Alert(Alert.AlertType.ERROR, "The entered shape is duplicate!", ButtonType.OK);
+    Alert matAlert = new Alert(Alert.AlertType.ERROR, "First set Material Size", ButtonType.OK);
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
             "your screen not support width bigger than 1200 and height bigger than 650.\n" +
             "Do you want to continue?\n" +
@@ -65,6 +66,70 @@ public class Main extends Application {
     }
 
     public void goToNewScene(MouseEvent mouseEvent) throws Exception {
+        new Show().start(stage);
+    }
+
+    @FXML
+    void addNewCircle(MouseEvent event) {
+        if (Config.config != null) {
+            String s = "⬤ Circle : " + "Radios: " + circleRadios.getText();
+
+            if (circleRadios.getText().matches("[0-9]*")) {
+                int radios = Integer.parseInt(circleRadios.getText());
+                Shape cir = new Circular(0, 0, radios);
+                if (!initShapes.contains(cir)) {
+                    initShapes.add(cir);
+                    myListView.getItems().add(s);
+                } else {
+                    duplicateAlert.showAndWait();
+                }
+            } else
+                positiveAlert.showAndWait();
+            circleRadios.setText("");
+        }
+        else {
+            matAlert.showAndWait();
+        }
+
+
+    }
+
+    @FXML
+    void addNewRectangle(MouseEvent event) {
+        if (Config.config != null) {
+            String s = "⋄ Rectangle : " + " W:" + rectW.getText() + " H: " + rectH.getText();
+            if (rectW.getText().matches("[0-9]*") && rectH.getText().matches("[0-9]*")) {
+                int width = Integer.parseInt(rectW.getText());
+                int height = Integer.parseInt(rectH.getText());
+                Shape rect = new Rectangular(width, height);
+                if (!initShapes.contains(rect)) {
+                    initShapes.add(rect);
+                    myListView.getItems().add(s);
+                } else {
+                    duplicateAlert.showAndWait();
+                }
+            } else
+                positiveAlert.showAndWait();
+            rectW.setText("");
+            rectH.setText("");
+        }
+        else {
+            matAlert.showAndWait();
+        }
+    }
+
+    @FXML
+    void removeShape(MouseEvent event) {
+        int selectedId = myListView.getSelectionModel().getSelectedIndex();
+        System.out.println(selectedId);
+        if (selectedId != -1) {
+            myListView.getItems().remove(selectedId);
+            initShapes.remove(selectedId);
+        }
+    }
+
+    @FXML
+    void setMat(MouseEvent event) {
         boolean flag = false;
         if (materialW.getText().matches("[0-9]*") && materialH.getText().matches("[0-9]*")) {
             int width = Integer.parseInt(materialW.getText());
@@ -75,64 +140,12 @@ public class Main extends Application {
             }
             if (!flag) {
                 Config.config = new Config(width , height);
-                new Show().start(stage);
             }
             if (alert.getResult() == ButtonType.YES) {
                 Config.config = new Config(width, height);
-                new Show().start(stage);
+
             }
 
-        }
-
-    }
-
-    @FXML
-    void addNewCircle(MouseEvent event) {
-        String s = "⬤ Circle : " + "Radios: " + circleRadios.getText();
-
-        if (circleRadios.getText().matches("[0-9]*")) {
-            int radios = Integer.parseInt(circleRadios.getText());
-            Shape cir = new Circular(0 , 0, radios);
-            if (!initShapes.contains(cir)) {
-                initShapes.add(cir);
-                myListView.getItems().add(s);
-            }
-            else{
-                duplicateAlert.showAndWait();
-            }
-        }
-        else
-            positiveAlert.showAndWait();
-
-
-    }
-
-    @FXML
-    void addNewRectangle(MouseEvent event) {
-        String s = "⋄ Rectangle : " + " W:" + rectW.getText() + " H: " + rectH.getText();
-        if (rectW.getText().matches("[0-9]*") && rectH.getText().matches("[0-9]*")) {
-            int width = Integer.parseInt(rectW.getText());
-            int height = Integer.parseInt(rectH.getText());
-            Shape rect = new Rectangular(width ,  height);
-            if (!initShapes.contains(rect)) {
-                initShapes.add(rect);
-                myListView.getItems().add(s);
-            }
-            else{
-                duplicateAlert.showAndWait();
-            }
-        }
-        else
-            positiveAlert.showAndWait();
-    }
-
-    @FXML
-    void removeShape(MouseEvent event) {
-        int selectedId = myListView.getSelectionModel().getSelectedIndex();
-        System.out.println(selectedId);
-        if (selectedId != -1) {
-            myListView.getItems().remove(selectedId);
-            initShapes.remove(selectedId);
         }
     }
 }

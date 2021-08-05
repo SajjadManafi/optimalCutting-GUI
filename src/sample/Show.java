@@ -28,17 +28,16 @@ public class Show extends Application {
     @FXML
     public void initialize() throws CloneNotSupportedException {
         layout.setPrefSize(Config.config.getWidth() , Config.config.getHeight());
-        //TODO: first check if cant place one from objects
 
         // test bin algorithm
-        ArrayList<Shape> sh = new ArrayList<>();
+//        ArrayList<Shape> sh = new ArrayList<>();
         Node bb = new sample.Node();
-        sh.add(new Rectangular(171,69));
-        sh.add(new Circular(0,0 , 80));
-        sh.add(new Rectangular(102,34));
-        sh.add(new Circular(0,0 , 56));
+//        sh.add(new Rectangular(171,69));
+//        sh.add(new Circular(0,0 , 80));
+//        sh.add(new Rectangular(102,34));
+//        sh.add(new Circular(0,0 , 56));
 
-        bb.shapes = Cut.cut(sh);
+        bb.shapes = Cut.cut(Main.initShapes);
 
         bb.sort();
         bb.fit();
