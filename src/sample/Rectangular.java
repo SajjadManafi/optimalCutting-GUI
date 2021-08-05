@@ -3,13 +3,19 @@ package sample;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.Objects;
+
 public class Rectangular extends Rectangle implements Shape{
     private Node fit = null;
     private double area;
+    private double wid;
+    private double hei;
 
     public Rectangular(double width, double height) {
         super(width / Config.config.getCoefficient(), height / Config.config.getCoefficient());
         calculateArea();
+        this.wid = width;
+        this.hei = height;
 //        this.getStyleClass().add("rectangle");
 //        this.setStroke(Color.ORANGERED);
         this.setFill(Color.color(Math.random(), Math.random(), Math.random()));
@@ -78,5 +84,13 @@ public class Rectangular extends Rectangle implements Shape{
     @Override
     public Node getFit() {
         return fit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangular that = (Rectangular) o;
+        return Double.compare(that.wid, wid) == 0 && Double.compare(that.hei, hei) == 0;
     }
 }

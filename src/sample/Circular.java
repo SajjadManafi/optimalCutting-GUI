@@ -3,14 +3,18 @@ package sample;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import java.util.Objects;
+
 public class Circular extends Circle implements Shape{
     private Node fit = null;
     private double area;
     private double actualArea;
+    private double rad;
 
     public Circular(double centerX, double centerY, double radius) {
         super(centerX, centerY, radius / Config.config.getCoefficient());
         calculateArea();
+        this.rad = radius;
 //        this.getStyleClass().add("circle");
 //        this.setStroke(Color.DARKBLUE);
         this.setFill(Color.color(Math.random(), Math.random(), Math.random()));
@@ -81,4 +85,13 @@ public class Circular extends Circle implements Shape{
     public Node getFit() {
         return fit;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Circular circular = (Circular) o;
+        return Double.compare(circular.rad, rad) == 0;
+    }
+
 }
