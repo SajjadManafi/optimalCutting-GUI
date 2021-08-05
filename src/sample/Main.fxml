@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
 
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Main">
+   <children>
+      <ListView fx:id="myListView" layoutX="300.0" layoutY="20.0" prefHeight="325.0" prefWidth="270.0" />
+      <TextField fx:id="materialW" alignment="CENTER" layoutX="45.0" layoutY="65.0" prefHeight="24.0" prefWidth="96.0" promptText="width" />
+      <TextField fx:id="materialH" alignment="CENTER" layoutX="150.0" layoutY="65.0" prefHeight="24.0" prefWidth="96.0" promptText="height" />
+      <Label layoutX="100.0" layoutY="38.0" text="Material Size:" />
+      <Label layoutX="100.0" layoutY="103.0" text="add rectangle" />
+      <TextField fx:id="rectW" alignment="CENTER" layoutX="45.0" layoutY="127.0" prefHeight="24.0" prefWidth="96.0" promptText="width" />
+      <TextField fx:id="rectH" alignment="CENTER" layoutX="147.0" layoutY="127.0" prefHeight="24.0" prefWidth="96.0" promptText="height" />
+      <Label layoutX="100.0" layoutY="201.0" text="add circle" />
+      <TextField fx:id="circleRadios" alignment="CENTER" layoutX="45.0" layoutY="226.0" prefHeight="24.0" prefWidth="191.0" promptText="circle radios" />
+      <Button layoutX="110.0" layoutY="163.0" mnemonicParsing="false" onMouseClicked="#addNewRectangle" prefHeight="24.0" prefWidth="63.0" text="add" />
+      <Button layoutX="110.0" layoutY="262.0" mnemonicParsing="false" onMouseClicked="#addNewCircle" prefHeight="24.0" prefWidth="63.0" text="add" />
 
-<Pane xmlns="http://javafx.com/javafx"
-      xmlns:fx="http//javafx.com/fxml"
-      fx:controller="sample.Main"
-      prefHeight="400.0" prefWidth="600.0">
-    <Button text="change scene" onMouseClicked="#goToNewScene"/>
-</Pane> 
+      <Button layoutX="85.0" layoutY="320.0" mnemonicParsing="false" onMouseClicked="#goToNewScene" prefHeight="24.0" prefWidth="113.0" text="change scene" />
+      <Button layoutX="390.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#removeShape" prefHeight="24.0" prefWidth="90.0" text="remove" />
+   </children>
+
+</Pane>
