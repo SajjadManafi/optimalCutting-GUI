@@ -1,7 +1,5 @@
 # optimal cutting with java - and GUI with javafx
-​
-12
-Sajjad Manafi
+
 for use: just run Main.java file =)
 
 
